@@ -27,7 +27,6 @@ st.header('Co-Authors of Selected Author')
 st.markdown("<font color=‘blue’>%s</font>" % str_coauthors.replace(',','</br>'), unsafe_allow_html=True)
 
 def filedownload(coauthors):
-    csv = coauthors.to_csv(index=False)
     b64 = base64.b64encode(coauthors.values[0].replace("'",'"').encode()).decode()  # strings <-> bytes conversions
     href = f'<a href="data:file/json;base64,{b64}" download="coauthors.json">Download as JSON File</a>'
     return href
